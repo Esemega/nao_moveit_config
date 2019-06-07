@@ -10,10 +10,10 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="left_arm">
-        <chain base_link="torso" tip_link="l_gripper" />
+        <chain base_link="torso" tip_link="l_wrist" />
     </group>
     <group name="right_arm">
-        <chain base_link="torso" tip_link="r_gripper" />
+        <chain base_link="torso" tip_link="r_wrist" />
     </group>
     <group name="head">
         <chain base_link="torso" tip_link="gaze" />
@@ -24,43 +24,6 @@
     <group name="right_leg">
         <chain base_link="RHip" tip_link="r_sole" />
     </group>
-
-<!--grupo para las dos piernas (added)-->
-    <group name="both_legs">
-        <joint name="LHipYawPitch" />
-        <joint name="LHipRoll" />
-	      <joint name="LHipPitch" />
-	      <joint name="LKneePitch" />
-        <joint name="LAnklePitch" />
-        <joint name="LAnkleRoll" />
-        <joint name="LLeg_effector_fixedjoint" />
-
-	      <joint name="RHipYawPitch" />
-        <joint name="RHipRoll" />
-        <joint name="RHipPitch" />
-        <joint name="RKneePitch" />
-        <joint name="RAnklePitch" />
-        <joint name="RAnkleRoll" />
-        <joint name="RLeg_effector_fixedjoint" />
-    </group>
-
-<!--grupo para los dos brazos (added)-->
-    <group name="both_arms">
-        <joint name="LShoulderPitch" />
-        <joint name="LShoulderRoll" />
-        <joint name="LElbowYaw" />
-        <joint name="LElbowRoll" />
-        <joint name="LWristYaw" />
-        <joint name="LHand" />
-
-        <joint name="RShoulderPitch" />
-        <joint name="RShoulderRoll" />
-        <joint name="RElbowYaw" />
-        <joint name="RElbowRoll" />
-        <joint name="RWristYaw" />
-        <joint name="RHand" />
-    </group>
-
     <group name="left_hand">
         <link name="LFinger11_link" />
         <link name="LFinger12_link" />
@@ -100,7 +63,6 @@
     <end_effector name="left_leg_eef" parent_link="r_ankle" group="left_leg" />
     <end_effector name="right_leg_eef" parent_link="l_ankle" group="right_leg" />
     <end_effector name="head_eef" parent_link="Head" group="head" />
-    <!-- <end_effector name="both_legs_eef" parent_link="r_ankle" group="both_legs" /> -->
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="virtual_joint" type="planar" parent_frame="odom" child_link="base_link" />
     <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
